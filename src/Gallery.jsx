@@ -12,17 +12,12 @@ const Gallery = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: [searchValue],
     queryFn: () => {
-      // console.log(searchValue);
       return axios.get(`${URL}?query=${searchValue}`, {
         headers: {
           'Accept-Version': 'v1',
           Authorization: `Client-ID ${ACCESS_KEY}`,
         },
       });
-    },
-
-    onSuccess: (data) => {
-      console.log(data);
     },
   });
 
